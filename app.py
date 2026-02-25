@@ -1,9 +1,14 @@
 from flask import Flask, request
-import joblib
+from sklearn.linear_model import LogisticRegression
 
 app = Flask(__name__)
 
-model = joblib.load("model.pkl")
+# Sample training data
+X = [[1,0,0],[1,1,0],[0,0,0],[0,1,1]]
+y = [1,1,0,0]
+
+model = LogisticRegression()
+model.fit(X, y)
 
 @app.route("/")
 def home():
