@@ -1,3 +1,6 @@
+from flask import Flask
+
+app = Flask(__name__)
 import joblib
 
 model = joblib.load("model.pkl")
@@ -14,3 +17,5 @@ if prediction[0] == 1:
     print("Disease Detected")
 else:
     print("No Disease")
+    if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
